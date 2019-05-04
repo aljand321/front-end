@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=|, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%- include("partials/head")%>
+    <title>Servicios</title>
+</head>
+<body>
+    <div class="dashboard-main-wrapper">
+        <%- include("partials/navbar")%>
+        <div class="nav-left-sidebar sidebar-dark">
+                <div class="menu-list">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="d-xl-none d-lg-none" href="#">Internacion</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav flex-column">
+                                <li class="nav-divider">
+                                    Menu
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Internacion<span class="badge badge-success">6</span></a>
+                                    <div id="submenu-1" class="collapse submenu" style="">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Servicios</a>
+                                                <div id="submenu-1-2" class="collapse submenu" style="">
+                                                    <ul class="nav flex-column">                                            
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="#">Lista de Servicios</a>
+                                                        </li>                                               
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item">
+                                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Salas</a>
+                                                    <div id="submenu-1-1" class="collapse submenu" style="">
+                                                        <ul class="nav flex-column">
+                                                            <li class="nav-item">
+                                                                <a class="nav-link" href="">Lista de Salas</a>
+                                                            </li>                            
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                        
+                                        </ul>
+                                    </div>
+                                </li>                          
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+        </div>
+
+        <br>
+        <br>
+        <div class="dashboard-wrapper">
+           
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="card">
+                    <h5 class="card-header">Basic Form</h5>
+                    <div class="card-body">
+                        <form action="/servico"  method="POST" id="basicform" data-parsley-validate="">
+                            <div class="form-group">
+                                <label for="inputUserName">Descripcion o nombre del servicio</label>
+                                <input id="inputUserName" type="text" name="descripcion" data-parsley-trigger="change" required="" placeholder="Ingrese la Descripcion" autocomplete="off" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail">Sigla</label>
+                                <input id="inputEmail" type="text" name="sigla" data-parsley-trigger="change" required="" placeholder="Sigla" autocomplete="off" class="form-control">
+                            </div>                                        
+                           
+                            <div class="row">
+                                <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                    <p class="text-right">
+                                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                    </p>
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </d
+                    iv>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <%- include("partials/footer")%>
+    
+</body>
+</html>
