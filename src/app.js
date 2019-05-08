@@ -5,6 +5,7 @@ const app = express();
 
 //importing routes
 const indexRoutes = require('./routes/index');
+const salas  = require('./routes/salas');
 
 
 //setings
@@ -22,6 +23,7 @@ app.use(express.urlencoded({extended: false}));
 
 // routes
 app.use('/', indexRoutes);
+app.use('/salas', salas);
 
 //starting the server
 app.listen(app.get('port'), () => {

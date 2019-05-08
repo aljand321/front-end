@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<%- include("partials/head") -%>
-	<title>Internacion</title>
+	<title>Internación</title>
 </head>
 <body>
 	<!-- SideBar -->
@@ -14,7 +14,7 @@
 		<div class="full-box dashboard-sideBar-ct">
 			<!--SideBar Title -->
 			<div class="full-box text-uppercase text-center text-titles dashboard-sideBar-title">
-				company <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
+				Hospital <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
 			</div>
 			<!-- SideBar User info -->
 
@@ -22,7 +22,7 @@
 			<!-- en esta parte entra el usario  -->
 			<div class="full-box dashboard-sideBar-UserInfo">
 				<figure class="full-box">
-					<img src="./assets/img/madara.jpg" alt="UserIcon">
+					<img src="/assets/img/madara.jpg" alt="UserIcon">
 					<figcaption class="text-center text-titles">aljand</figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
@@ -58,10 +58,10 @@
 							<a href="/servicio"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Servicios</a>
 						</li>
 						<li>
-							<a href="subject.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Salas</a>
+							<a href="/sala"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Salas</a>
 						</li>
 						<li>
-							<a href="section.html"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Camas</a>
+							<a href="#"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Camas</a>
 						</li>
 					</ul>
 				</li>			
@@ -82,7 +82,7 @@
 				<li>
 					<a href="#!" class="btn-Notifications-area">
 						<i class="zmdi zmdi-notifications-none"></i>
-						<span class="badge">7</span>
+						<span class="badge">2</span>
 					</a>
 				</li>
 				<li>
@@ -99,25 +99,32 @@
 		</nav>
 
 		<!-- Aqui es donde va todo el contenido por ejemplo una tabla -->
-		<h1>esto es el cuerpo</h1>
-
-		<div class="full-box text-center" style="padding: 30px 10px;">
-			<% for(var i=0; i < resp.length; i++) { %>
-			<article class="full-box tile">
-				<div class="full-box tile-title text-center text-titles text-uppercase">
-					<%=resp[i].descripcion %>
-				</div>
-				<div class="full-box tile-icon text-center">
-					<i class="zmdi zmdi-account"></i>
-				</div>
-				<div class="full-box tile-number text-titles">
-					<p class="full-box">7</p>
-					<small>N° total de camas</small>
-				</div>
-			</article>
-			<% } %>
+		<div class="page-header">
+			<h1 class="text-titles"><i class=""></i> Lista <small>Servicios</small></h1>
 		</div>
-				
+
+		<div class="container-fluid">
+			<div class="cards-list">
+				<% for(var i=0; i < resp.length; i++) { %>
+				<div class="card 1">
+					<div class="card_image">
+					  <img src="/assets/img/giphy.webp" />
+					  </div>
+					  <br>
+					  
+					<div class="card_title title-black">
+					  <p>
+							<a href="/api/ServSalas/<%= resp[i].descripcion%>"><%= resp[i].descripcion%></a>
+					  </p>
+					  
+					</div>
+				</div>	
+				<% } %>				
+			</div>
+		</div>
+		<br>
+		<br>
+			
 	</section>
 
 	<!--====== Scripts -->

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <%- include("partials/head") -%>
-    <title>Servcios </title>
+    <title>Servicios </title>
 </head>
 <body>
   <section class="full-box cover dashboard-sideBar">
@@ -13,7 +13,7 @@
 		<div class="full-box dashboard-sideBar-ct">
 			<!--SideBar Title -->
 			<div class="full-box text-uppercase text-center text-titles dashboard-sideBar-title">
-				company <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
+				Hospital <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
 			</div>
 			<!-- SideBar User info -->
 
@@ -54,7 +54,7 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="/salas"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Salas</a>
+							<a href="/sala"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Salas</a>
 						</li>
 						<li>
 							<a href="/camas"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Camas</a>
@@ -92,9 +92,8 @@
        
         <div class="container-fluid">
             <div class="page-header">
-                <h1 class="text-titles"><i class=""></i> Lista  <small>Servicos</small></h1>
+                <h1 class="text-titles"><i class=""></i> Servicios <small></small></h1>
             </div>
-            <h1>hola </h1>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12">
@@ -149,8 +148,8 @@
                                                 <td><%=resp[i].createdAt %></td>
                                                 <td><%=resp[i].updatedAt %></td>
                                                 
-                                                <td><a href="/api/servOne/<%=resp[i].id %>" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-                                                <td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
+                                                <td><a href="/api/servOne/<%= resp[i].id %>" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+                                                <td><a href="/api/DElserv/<%= resp[i].id %>" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
                                             </tr>
                                             <% } %>
                                         </tbody>
