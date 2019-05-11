@@ -99,13 +99,40 @@
                                                 <div class="col-xs-12 col-md-10 col-md-offset-1">
                                                     <form action="/api/UpdateServicios/<%= resp[0].id %>" method="POST">
                                                         <div class="form-group label-floating">
-                                                          <label class="control-label">Descripción</label>
-                                                          <input class="form-control" type="text" name="descripcion" value="<%= resp[0].descripcion %>">
-                                                        </div> 
+                                                            <label class="control-label">Nombre</label>
+                                                            <input class="form-control" type="text" name="nombre" value="<%= resp[0].nombre %>">
+                                                        </div>
                                                         <div class="form-group label-floating">
                                                             <label class="control-label">Sigla</label>
                                                             <input class="form-control" type="text" name="sigla" value="<%= resp[0].sigla %>">
-                                                        </div>                                           
+                                                        </div>
+                                                        <div class="form-group label-floating">
+                                                          <label class="control-label">Descripción</label>
+                                                          <input class="form-control" type="text" name="descripcion" value="<%= resp[0].descripcion %>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label">Especialidad SNIS</label>
+                                                            <select class="form-control" name="especilidadSNSIS">                                                   
+                                                              
+                                                             <!--en esta parte se tiene que recuperar de una tabla-->
+                                                             <option><%= resp[0].especilidadSNSIS %></option>
+                                                             <option>Pedriatria</option>
+                                                             <option>Medicina Interna</option>
+
+                                                             
+                                                            </select>
+                                                        </div>  
+                                                        <div class="form-group">
+                                                            <label class="control-label">Establecimiento SNIS</label>
+                                                            <select class="form-control" name="establecimientoSNIS">                                                   
+                                                              
+                                                             <!--en esta parte se tiene que recuperar de una tabla-->
+                                                             <option><%= resp[0].establecimientoSNIS %></option>
+                                                             <option>Hospital Daniel Bracmonte</option>
+                                                             <option>Sedes</option>
+                                                            </select>
+                                                        </div>     
+                                                        
                                         
                                                         <p class="text-center">
                                                             <button class="btn btn-info btn-raised btn-sm"><i class="zmdi zmdi-floppy"></i> Guardar</button>

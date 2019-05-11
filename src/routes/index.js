@@ -23,10 +23,7 @@ router.get('/home', (req, res) => {
 
 //esta ruta sirve para enviar datos a la tabla servicios
 router.post('/servicio', (req, res) => {
-  var enviar = {
-    descripcion: req.body.descripcion,
-    sigla: req.body.sigla
-  };
+  var enviar = req.body;
       var esto={
       method: 'POST',
       body: JSON.stringify(enviar),
@@ -42,6 +39,7 @@ router.post('/servicio', (req, res) => {
       res.redirect('/servicio');
     })
 });
+
 router.get('/servicio', (req, res) => {
   fetch('http://localhost:3000/api/servicios')
     .then(resp => resp.json())
@@ -69,10 +67,7 @@ router.get('/api/servOne/:id', (req, res) => {
 router.post('/api/UpdateServicios/:id', (req,res) =>{
   var id = req.url;
   console.log(id + " esto es el id");
-  var update = {
-    descripcion: req.body.descripcion,
-    sigla: req.body.sigla
-  }
+  var update = req.body;
   console.log(update);
   var esto={
     method: 'POST',
@@ -114,15 +109,12 @@ router.get('/sala', (req,res) => {
       servD,
       resp
     });
-});
+  });
 });
 
 router.post('/sala', (req, res) => {
-  var data = {
-      servico: req.body.servico,
-      descripcion: req.body.descripcion,
-      piso: req.body.piso
-  }
+  
+  var data = req.body;
   var esto = {
       method: 'POST',
       body: JSON.stringify(data),
@@ -153,10 +145,7 @@ router.get('/api/salaOne/:id', (req, res) => {
 
 router.post('/api/UpdateSalas/:id', (req,res) =>{
   var id = req.url;
-  var update = {
-    descripcion: req.body.descripcion,
-    piso: req.body.piso
-  }
+  var update = req.body;
   var esto={
     method: 'POST',
     body: JSON.stringify(update),
@@ -196,6 +185,7 @@ router.get('/api/ServSalas/:id', (req, res) => {
   })
 });
 
+//servicios para poder insertar a salas
 //<%- include("partials/head")%>
 
 module.exports = router;

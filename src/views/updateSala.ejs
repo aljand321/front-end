@@ -100,13 +100,17 @@
                                                     <form action="/api/UpdateSalas/<%= resp[0].id %>" method="POST">
                                                         <h2>Formulario de Actualizacion</h2>
                                                         <div class="form-group label-floating">
-                                                          <label class="control-label">Descripción</label>
-                                                          <input class="form-control" type="text" name="descripcion" value="<%= resp[0].descripcion %>">
+                                                          <label class="control-label">Nombre</label>
+                                                          <input class="form-control" type="text" name="nombre" value="<%= resp[0].nombre %>">
                                                         </div> 
                                                         <div class="form-group label-floating">
-                                                            <label class="control-label">Sigla</label>
-                                                            <input class="form-control" type="text" name="piso" value="<%= resp[0].piso %>">
-                                                        </div>                                           
+                                                            <label class="control-label">Descripcion</label>
+                                                            <input class="form-control" type="text" name="descripcionSala" value="<%= resp[0].descripcionSala %>">
+                                                        </div> 
+                                                        <div class="form-group label-floating">
+                                                                <label class="control-label">Piso</label>
+                                                                <input class="form-control" type="text" name="piso" value="<%= resp[0].piso %>">
+                                                            </div>                                           
                                         
                                                         <p class="text-center">
                                                             <button class="btn btn-info btn-raised btn-sm"><i class="zmdi zmdi-floppy"></i> Actualizar</button>
