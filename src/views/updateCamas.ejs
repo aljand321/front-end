@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%- include("partials/head") -%>
+    <title>Actualizar Camas</title>
+</head>
+<body>
+    <section class="full-box cover dashboard-sideBar">
+        <div class="full-box dashboard-sideBar-bg btn-menu-dashboard"></div>
+        <div class="full-box dashboard-sideBar-ct">
+            <!--SideBar Title -->
+            <div class="full-box text-uppercase text-center text-titles dashboard-sideBar-title">
+                company <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
+            </div>
+            <!-- SideBar User info -->
+
+
+            <!-- en esta parte entra el usario  -->
+            <div class="full-box dashboard-sideBar-UserInfo">
+                <figure class="full-box">
+                    <img src="/assets/img/madara.jpg" alt="UserIcon">
+                    <figcaption class="text-center text-titles">aljand</figcaption>
+                </figure>
+                <ul class="full-box list-unstyled text-center">
+                    <li>
+                        <a href="#!">
+                            <i class="zmdi zmdi-settings"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!" class="btn-exit-system">
+                            <i class="zmdi zmdi-power"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- fin del div usario en esta parte entra el usario  -->
+            
+
+            <!-- SideBar Menu -->
+            <!-- esto es para los menus retractiles -->
+            <ul class="list-unstyled full-box dashboard-sideBar-Menu">
+                <li>
+                    <a href="/home">
+                        <i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="#!" class="btn-sideBar-SubMenu">
+                        <i class="zmdi zmdi-case zmdi-hc-fw"></i> Internación <i class="zmdi zmdi-caret-down pull-right"></i>
+                    </a>
+                    <ul class="list-unstyled full-box">
+                        <li>
+                            <a href="/salas/sala"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Salas</a>
+                        </li>
+                        <li>
+                            <a href="/camas"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Camas</a>
+                        </li>
+                    </ul>
+                </li>			
+            </ul>
+        </div>
+    </section>
+  <section class="full-box dashboard-contentPage">
+        <nav class="full-box dashboard-Navbar">
+                <ul class="full-box list-unstyled text-right">
+                    <li class="pull-left">
+                        <a href="#!" class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></a>
+                    </li>
+                    <li>
+                        <a href="#!" class="btn-Notifications-area">
+                            <i class="zmdi zmdi-notifications-none"></i>
+                            <span class="badge">2</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!" class="btn-search">
+                            <i class="zmdi zmdi-search"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!" class="btn-modal-help">
+                            <i class="zmdi zmdi-help-outline"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="container-fluid">
+                <div class="page-header">
+                    <h1 class="text-titles"><i class=""></i> Actualizar  <small>Camas</small></h1>
+                </div>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="new">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-10 col-md-offset-1">
+                                        <form action="/api/OnlyCama/<%= resp[0].id %>" method="POST">
+                                            <h1>Formulario para Actulizar Numero de cama</h1>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label"><%= resp[0].descripcion %></label>
+                                                
+                                            </div>
+                                            <div class="form-group label-floating">
+                                              <label class="control-label">Numero de Cama</label>
+                                              <input class="form-control" type="text" name="numeroCama" value="<%= resp[0].numeroCama %>">
+                                            </div>                                            
+                                            <p class="text-center">
+                                                <button class="btn btn-info btn-raised btn-sm"><i class="zmdi zmdi-floppy"></i> Actualizar</button>
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+  </section>
+  <%- include("partials/footer") -%>
+</body>
+</html>

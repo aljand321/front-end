@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<%- include("partials/head") -%>
-	<title>Internación</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%- include("partials/head") -%>
+    <title>Camas</title>
 </head>
 <body>
-	<!-- SideBar -->
-	<section class="full-box cover dashboard-sideBar">
+    <section class="full-box cover dashboard-sideBar">
 		<div class="full-box dashboard-sideBar-bg btn-menu-dashboard"></div>
 		<div class="full-box dashboard-sideBar-ct">
 			<!--SideBar Title -->
@@ -61,20 +60,15 @@
 							<a href="/sala"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Salas</a>
 						</li>
 						<li>
-							<a href="/camas"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Camas</a>
+							<a href="#"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Camas</a>
 						</li>
 					</ul>
 				</li>			
 			</ul>
 		</div>
-	</section>
-
-	<!-- Content page-->
-
-	<!-- Esto es para navbar linea negra de la parte superior-->
-	<section class="full-box dashboard-contentPage">
-		<!-- NavBar -->
-		<nav class="full-box dashboard-Navbar">
+    </section>
+    <section class="full-box dashboard-contentPage">
+        <nav class="full-box dashboard-Navbar">
 			<ul class="full-box list-unstyled text-right">
 				<li class="pull-left">
 					<a href="#!" class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></a>
@@ -96,15 +90,12 @@
 					</a>
 				</li>
 			</ul>
-		</nav>
-
-		<!-- Aqui es donde va todo el contenido por ejemplo una tabla -->
-		<div class="page-header">
-			<h1 class="text-titles"><i class=""></i> Lista <small>Servicios</small></h1>
-		</div>
-
-		<div class="container-fluid">
-			<div class="cards-list">
+        </nav>
+        <div class="container-fluid">
+            <div class="page-header">
+                <h1 class="text-titles"><i class=""></i> Camas <small></small></h1>
+            </div>
+            <div class="cards-list">
 				<% for(var i=0; i < resp.length; i++) { %>
 				<div class="card 1">
 					<div class="card_image">
@@ -114,20 +105,21 @@
 					  
 					<div class="card_title title-black">
 					  <p>
-							<a href="/SalaCamasList/<%= resp[i].id%>"><%= resp[i].descripcionSala%></a>
+						<%= resp[i].nombre%>
+              </p>
+              <p>
+						<a href="/mostrarSalaCama/<%= resp[i].id %>"><%= resp[i].descripcionSala%></a>
 					  </p>
 					  
 					</div>
 				</div>	
 				<% } %>				
 			</div>
-		</div>
-		<br>
-		<br>
-			
-	</section>
-
-	<!--====== Scripts -->
-	<%- include("partials/footer") -%>
+        </div> 
+        <br>
+        <br>     
+    </section>
+    
+    <%- include("partials/footer") -%>
 </body>
 </html>

@@ -94,8 +94,20 @@ router.get('/api/DElserv/:id', (req,res) => {
     console.log(resp);
     res.redirect('/servicio')
   })
-});
+}); 
 
+//Servcio para mostrar de una sala sus camas en una lista
+router.get('/SalaCamasList/:id', (req,res) =>{
+  var id = req.params;
+  fetch('http://localhost:3000/api/camaSala/'+id.id,)
+  .then(resp => resp.json())
+  .then(resp =>{
+    //res.send(resp)
+    res.render('camasDisp',{
+      resp
+    });
+  });
+});
 
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -146,7 +158,7 @@ router.get('/api/salaOne/:id', (req, res) => {
 router.post('/api/UpdateSalas/:id', (req,res) =>{
   var id = req.url;
   var update = req.body;
-  var esto={
+  var esto = {
     method: 'POST',
     body: JSON.stringify(update),
     headers:{
@@ -185,7 +197,128 @@ router.get('/api/ServSalas/:id', (req, res) => {
   })
 });
 
+//>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<>>>>
+//servicios para camas
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 //servicios para poder insertar a salas
+var idSala;
+var idS;
+router.get('/camas', (req, res) => { 
+  fetch('http://localhost:3000/api/sala')
+  .then(resp => resp.json())
+  .then(resp => {   
+    if(resp == ""){
+      res.send("PORFAVOR INSERTA SALAS ANTES DE INSERTAR CAMAS");
+    }else{
+      idSala = resp;
+      idS = resp[0].id;
+      res.render('camas',{
+        resp
+      });
+    } 
+  })
+});
+
+//get para mostrar datos
+var dataOneSala
+router.get('/mostrarSalaCama/:id', (req,res) => {
+  var OneSala = req.params
+  console.log(OneSala.id);
+  fetch('http://localhost:3000/api/salaOne/'+OneSala.id)
+  .then(resp => resp.json())
+  .then(resp => {
+    dataOneSala = resp;
+    res.redirect('/api/camaSala/'+OneSala.id)
+  })
+});
+
+//servicio para poder mostrar las camas que existe en una determinada sala
+router.get('/api/camaSala/:id', (req, res) => {
+  var url = req.url
+  console.log(url);
+  fetch('http://localhost:3000'+url)
+  .then(resp => resp.json())
+  .then(resp => {
+    //idS = resp[0].salaID;
+    console.log('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');    
+    console.log(url);
+    console.log('<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>');
+      res.render('camasPOST',{
+        resp,
+        idSala,
+        url,
+        dataOneSala    
+    })  
+  })
+});
+
+router.post('/api/camaSala/:id', (req,res) => {
+  var id = req.url
+  var data = req.body;
+  var esto = {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers:{
+      'Content-type' : "application/json"
+    }
+  };
+  fetch('http://localhost:3000'+id,esto)
+  .then(res => res.json())
+  .catch(error => console.error('Error:', error))
+  .then(data => {
+    console.log(data);
+    res.redirect(id);
+  })  
+});
+
+//servcio para mostrar una sola cama
+
+router.get('/api/OnlyCama/:id', (req,res) => {
+  var id = req.url
+  console.log(id);
+  fetch('http://localhost:3000'+id)
+  .then(resp => resp.json())
+  .then(resp => {
+    idS = resp[0].salaID;
+    console.log("salaId<<<<<<<<<<<<<<<<<");
+    console.log(idS);
+    console.log("salaId<<<<<<<<<<<<<<<<<<<<<");
+    res.render('updateCamas',{
+      resp
+    });
+  })
+});
+
+router.post('/api/OnlyCama/:id', (req,res) => {
+  var idC = req.params;
+  var id = idC.id;   
+  var data = req.body;
+  var esto = {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers:{
+      'Content-type' : "application/json"
+    }
+  };
+  fetch('http://localhost:3000/api/OnlyCama/' + id, esto)
+  .then(res => res.json())
+  .catch(error => console.error('Error:', error))
+  .then(data => {
+    res.redirect('/api/camaSala/'+idS);
+  })
+});
+
+router.get('/api/DElcama/:id', (req,res) => {
+  var id = req.url;
+  fetch('http://localhost:3000'+id)
+  .then(resp => resp.json())
+  .then(resp => {
+    console.log(idS);
+    res.redirect('/api/camaSala/'+idS)
+  })
+});
+
 //<%- include("partials/head")%>
 
 module.exports = router;

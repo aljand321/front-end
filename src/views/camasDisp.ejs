@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<%- include("partials/head") -%>
-	<title>Internación</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%- include("partials/head") -%>
+    <title>LIsas de Camas Disponibles</title>
 </head>
 <body>
-	<!-- SideBar -->
-	<section class="full-box cover dashboard-sideBar">
+    <section class="full-box cover dashboard-sideBar">
 		<div class="full-box dashboard-sideBar-bg btn-menu-dashboard"></div>
 		<div class="full-box dashboard-sideBar-ct">
 			<!--SideBar Title -->
@@ -67,12 +66,8 @@
 				</li>			
 			</ul>
 		</div>
-	</section>
-
-	<!-- Content page-->
-
-	<!-- Esto es para navbar linea negra de la parte superior-->
-	<section class="full-box dashboard-contentPage">
+    </section> 
+    <section class="full-box dashboard-contentPage">
 		<!-- NavBar -->
 		<nav class="full-box dashboard-Navbar">
 			<ul class="full-box list-unstyled text-right">
@@ -97,37 +92,37 @@
 				</li>
 			</ul>
 		</nav>
-
-		<!-- Aqui es donde va todo el contenido por ejemplo una tabla -->
+        <!-- Aqui es donde va todo el contenido por ejemplo una tabla -->
 		<div class="page-header">
-			<h1 class="text-titles"><i class=""></i> Lista <small>Servicios</small></h1>
-		</div>
-
-		<div class="container-fluid">
-			<div class="cards-list">
-				<% for(var i=0; i < resp.length; i++) { %>
-				<div class="card 1">
-					<div class="card_image">
-					  <img src="/assets/img/giphy.webp" />
-					  </div>
-					  <br>
-					  
-					<div class="card_title title-black">
-					  <p>
-							<a href="/SalaCamasList/<%= resp[i].id%>"><%= resp[i].descripcionSala%></a>
-					  </p>
-					  
-					</div>
-				</div>	
-				<% } %>				
-			</div>
-		</div>
+			<h1 class="text-titles"><i class=""></i> Lista <small>Camas</small></h1>
+        </div>
+        <div class="container-fluid">
+                <h2><%=resp[0].descripcion %></h2>
+                <div class="table-wrapper">
+                    <table class="fl-table">
+                        <thead>
+                        <tr>
+                            <th>Numero de Cama</th>
+                            <th>Descripcion</th>
+                            <th>nombre del paciente</th>
+                            <th>Dias en que esta el paciente en esta cama</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% for(var i=0; i < resp.length; i++) { %>
+                        <tr>
+                            <td><%=resp[i].numeroCama %></td>
+                            <td><%=resp[i].descripcion %></td>
+                        </tr>
+                        <% } %>
+                        <tbody>
+                    </table>
+                </div>
+        </div>
 		<br>
 		<br>
 			
 	</section>
-
-	<!--====== Scripts -->
-	<%- include("partials/footer") -%>
+<%- include("partials/footer") -%> 
 </body>
 </html>
